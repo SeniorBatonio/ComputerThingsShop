@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ComputerThingsShop.Models.ComputerComponentsParams;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,16 +16,15 @@ namespace ComputerThingsShop.Models.ComputerComponents
         private int noiseLevel;
         private int maxTDP;
         private string typeOfBearing;//тип 
-        public CooldownSystem(float price, string brand, string model, string mainFunction, string type, int diametr,
-        int rotationSpeed, int noiseLevel, int maxTDP, string typeOfBearing) : base(price, brand, model)
+        public CooldownSystem(CooldownSystemParams @params) : base(@params.price, @params.brand, @params.model)
         {
-            this.mainFunction = mainFunction;
-            this.type = type;
-            this.diametr = diametr;
-            this.rotationSpeed = rotationSpeed;
-            this.noiseLevel = noiseLevel;
-            this.maxTDP = maxTDP;
-            this.typeOfBearing = typeOfBearing;
+            this.mainFunction = @params.mainFunction;
+            this.type = @params.type;
+            this.diametr = @params.diametr;
+            this.rotationSpeed = @params.rotationSpeed;
+            this.noiseLevel = @params.noiseLevel;
+            this.maxTDP = @params.maxTDP;
+            this.typeOfBearing = @params.typeOfBearing;
         }
     }
 }

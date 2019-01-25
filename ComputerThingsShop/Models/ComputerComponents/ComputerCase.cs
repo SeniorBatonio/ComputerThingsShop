@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ComputerThingsShop.Models.ComputerComponentsParams;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,14 +15,13 @@ namespace ComputerThingsShop.Models.ComputerComponents
         int numberOfFans;
         bool powerSupply;//есть или не установлен по умолчанию
 
-        public ComputerCase(float price, string brand, string model, string formFacktor, string typeOfMotherboard,
-        string materials, int numberOfFans, bool powerSupply) : base(price, brand, model)
+        public ComputerCase(ComputerCaseParams @params) : base(@params.price, @params.brand, @params.model)
         {
-            this.formFacktor = formFacktor;
-            this.typeOfMotherboard = typeOfMotherboard;
-            this.materials = materials;
-            this.numberOfFans = numberOfFans;
-            this.powerSupply = powerSupply;
+            this.formFacktor = @params.formFacktor;
+            this.typeOfMotherboard = @params.typeOfMotherboard;
+            this.materials = @params.materials;
+            this.numberOfFans = @params.numberOfFans;
+            this.powerSupply = @params.powerSupply;
         }
     }
 }

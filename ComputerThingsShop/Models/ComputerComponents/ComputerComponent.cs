@@ -29,7 +29,7 @@ namespace ComputerThingsShop.Models.ComputerComponents
             this.Price = price;
             this.brand = brand;
             this.model = model;
-            this.Price++;
+            count++;
         }
     };
 }
