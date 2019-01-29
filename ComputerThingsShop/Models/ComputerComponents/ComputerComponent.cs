@@ -9,6 +9,7 @@ namespace ComputerThingsShop.Models.ComputerComponents
     abstract class ComputerComponent
     {
         private static int count = 0;
+        private float price;
         public static int Count
         {
             get => count;
@@ -20,16 +21,19 @@ namespace ComputerThingsShop.Models.ComputerComponents
                     count = value;
             }
         }
-        protected float Price { get; }
-        protected string brand;
-        protected string model;
-
-        public ComputerComponent(float price, string brand, string model)
+        public float Price
         {
-            this.Price = price;
-            this.brand = brand;
-            this.model = model;
-            count++;
+            get => price;
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentOutOfRangeException("Count");
+                else
+                    price = value;
+            }
         }
+        public string Brand { get; set;}
+        public string Model { get; set; }
+
     };
 }

@@ -6,59 +6,60 @@ using System.Threading.Tasks;
 
 namespace ComputerThingsShop.Models.ComputerComponents
 {
-    class CooldownSystem : ComputerComponent
+    class CPU : ComputerComponent
     {
-        private int diametr;
-        private int rotationSpeed;
-        private int noizeLevel;
-        private int maxTDP;
+        private int cores;
+        private int technicalProcess;
+        private int heatTransfer;
+        private float frequency;
 
-        public string MainFunction { get; set; }
-        public string Type { get; set; }
-        public int Diametr
+        public string socketType { get; set; }
+        public bool overklocking { get; set; }
+        public int Cores
         {
-            get => diametr;
+            get => cores;
             set
             {
                 if (value < 0)
                     throw new ArgumentOutOfRangeException("Count");
                 else
-                    diametr = value;
+                    cores = value;
             }
         }
-        public int RotationSpeed
+        public bool embeddedGPU { get; set; }
+        public int TechnicalProcess
         {
-            get => rotationSpeed;
+            get => technicalProcess;
             set
             {
                 if (value < 0)
                     throw new ArgumentOutOfRangeException("Count");
                 else
-                    rotationSpeed = value;
+                    technicalProcess = value;
             }
         }
-        public int NoiseLevel
+        public int HeatTransfer
         {
-            get => noizeLevel;
+            get => heatTransfer;
             set
             {
                 if (value < 0)
                     throw new ArgumentOutOfRangeException("Count");
                 else
-                    noizeLevel = value;
+                    heatTransfer = value;
             }
         }
-        public int MaxTDP
+        public float Frequency
         {
-            get => maxTDP;
+            get => frequency;
             set
             {
                 if (value < 0)
                     throw new ArgumentOutOfRangeException("Count");
                 else
-                    maxTDP = value;
+                    frequency = value;
             }
         }
-        public string typeOfBearing { get; set; }//тип 
+
     }
 }

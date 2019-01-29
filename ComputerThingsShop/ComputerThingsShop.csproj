@@ -62,9 +62,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\ComputerComponentsParams\ComputerCaseParams.cs" />
-    <Compile Include="Models\ComputerComponentsParams\ComputerComponentParams.cs" />
-    <Compile Include="Models\ComputerComponentsParams\CooldownSystemParams.cs" />
     <Compile Include="Models\ComputerComponents\CooldownSystem.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -74,6 +71,12 @@
   <ItemGroup>
     <Compile Include="Models\ComputerComponents\ComputerComponent.cs" />
     <Compile Include="Models\ComputerComponents\ComputerCase.cs" />
+    <Compile Include="Models\ComputerComponents\CPU.cs" />
+    <Compile Include="Models\ComputerComponents\GPU.cs" />
+    <Compile Include="Models\ComputerComponents\HardDrive.cs" />
+    <Compile Include="Models\ComputerComponents\Motherboard.cs" />
+    <Compile Include="Models\ComputerComponents\PowerSupply.cs" />
+    <Compile Include="Models\ComputerComponents\RAM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
