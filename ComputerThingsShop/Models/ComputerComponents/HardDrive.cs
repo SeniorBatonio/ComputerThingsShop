@@ -35,7 +35,7 @@ namespace ComputerThingsShop.Models.ComputerComponents
                     writeSpeed = value;
             }
         }
-        public int Read
+        public int ReadSpeed
         {
             get => read;
             set

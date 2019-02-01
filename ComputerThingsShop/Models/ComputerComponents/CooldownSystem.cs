@@ -59,6 +59,6 @@ namespace ComputerThingsShop.Models.ComputerComponents
                     maxTDP = value;
             }
         }
-        public string typeOfBearing { get; set; }//тип 
+        public string TypeOfBearing { get; set; }//тип 
     }
 }

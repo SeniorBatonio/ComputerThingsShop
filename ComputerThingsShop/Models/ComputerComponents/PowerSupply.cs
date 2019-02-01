@@ -10,10 +10,6 @@ namespace ComputerThingsShop.Models.ComputerComponents
     {
         private int power;
 
-        public string NutritionCPU { get; set; }// питание
-        public string CooldownSystem { get; set; }
-        public string NutritionGPU { get; set; }
-        public string Formfactor { get; set; }
         public int Power
         {
             get => power;
@@ -25,6 +21,10 @@ namespace ComputerThingsShop.Models.ComputerComponents
                     power = value;
             }
         }
+        public string NutritionCPU { get; set; }// питание
+        public string CooldownSystem { get; set; }
+        public string NutritionGPU { get; set; }
+        public string Formfactor { get; set; }
         public bool Modular{ get; set; }
 
     }

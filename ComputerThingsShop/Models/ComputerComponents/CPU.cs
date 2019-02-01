@@ -13,8 +13,8 @@ namespace ComputerThingsShop.Models.ComputerComponents
         private int heatTransfer;
         private float frequency;
 
-        public string socketType { get; set; }
-        public bool overklocking { get; set; }
+        public string SocketType { get; set; }
+        public bool Overklocking { get; set; }
         public int Cores
         {
             get => cores;
@@ -26,7 +26,7 @@ namespace ComputerThingsShop.Models.ComputerComponents
                     cores = value;
             }
         }
-        public bool embeddedGPU { get; set; }
+        public bool EmbeddedGPU { get; set; }
         public int TechnicalProcess
         {
             get => technicalProcess;

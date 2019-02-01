@@ -8,9 +8,9 @@ namespace ComputerThingsShop.Models.ComputerComponents
 {
     abstract class ComputerComponent
     {
-        private static int count = 0;
+        private int count;
         private float price;
-        public static int Count
+        public int Count
         {
             get => count;
             set
@@ -34,6 +34,6 @@ namespace ComputerThingsShop.Models.ComputerComponents
         }
         public string Brand { get; set;}
         public string Model { get; set; }
-
+        public string AboutComponent { get; set; }
     };
 }
