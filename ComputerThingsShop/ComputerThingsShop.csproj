@@ -91,6 +91,7 @@
     <Compile Include="Models\ComputerComponents\Motherboard.cs" />
     <Compile Include="Models\ComputerComponents\PowerSupply.cs" />
     <Compile Include="Models\ComputerComponents\RAM.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
