@@ -11,7 +11,7 @@ namespace ComputerThingsShop.Models.ComputerComponents
         private int cores;
         private int technicalProcess;
         private int heatTransfer;
-        private float frequency;
+        private double frequency;
 
         public string SocketType { get; set; }
         public bool Overklocking { get; set; }
@@ -20,7 +20,7 @@ namespace ComputerThingsShop.Models.ComputerComponents
             get => cores;
             set
             {
-                if (value < 0)
+                if (value< 0)
                     throw new ArgumentOutOfRangeException("Count");
                 else
                     cores = value;
@@ -32,7 +32,7 @@ namespace ComputerThingsShop.Models.ComputerComponents
             get => technicalProcess;
             set
             {
-                if (value < 0)
+                if (value< 0)
                     throw new ArgumentOutOfRangeException("Count");
                 else
                     technicalProcess = value;
@@ -49,7 +49,7 @@ namespace ComputerThingsShop.Models.ComputerComponents
                     heatTransfer = value;
             }
         }
-        public float Frequency
+        public System.Double Frequency
         {
             get => frequency;
             set

@@ -20,12 +20,42 @@ namespace ComputerThingsShop
     /// </summary>
     public partial class MainWindow : Window
     {
+        LoginWindow LoginWindow = new LoginWindow();
         public MainWindow()
         {
-            LoginWindow lw = new LoginWindow();
-            lw.ShowDialog();
+            LoginWindow.LoginButton.Click += LoginButton_Click;
+            LoginWindow.RegisterButton.Click += RegisterButton_Click;
+            LoginWindow.ExitButton.Click += ExitButton_Click;
+            LoginWindow.ShowDialog();
             InitializeComponent();
-            
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            using (ApplicationContext context = new ApplicationContext("ComputerThingsDB"))
+            {
+                var Users = context.Users;
+                var User = Users.FirstOrDefault(user => user.UserName == LoginWindow.Username.Text);
+                if (User != null)
+                {
+                    if (User.Password == LoginWindow.UserPassword.Password)
+                    {
+                        LoginWindow.Close();
+                    }
+                    else { MessageBox.Show("Incorrect password!"); }
+                }
+                else { MessageBox.Show("Incorrect login!"); }
+            }
         }
     }
 }

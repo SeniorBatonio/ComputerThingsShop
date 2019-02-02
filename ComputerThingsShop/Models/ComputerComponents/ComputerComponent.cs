@@ -9,7 +9,7 @@ namespace ComputerThingsShop.Models.ComputerComponents
     abstract class ComputerComponent
     {
         private int count;
-        private float price;
+        private double price;
         public int Count
         {
             get => count;
@@ -21,7 +21,7 @@ namespace ComputerThingsShop.Models.ComputerComponents
                     count = value;
             }
         }
-        public float Price
+        public double Price
         {
             get => price;
             set
@@ -32,6 +32,7 @@ namespace ComputerThingsShop.Models.ComputerComponents
                     price = value;
             }
         }
+        public int ID { get; set; }
         public string Brand { get; set;}
         public string Model { get; set; }
         public string AboutComponent { get; set; }
