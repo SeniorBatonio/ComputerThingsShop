@@ -1,0 +1,27 @@
+﻿<Window x:Class="ComputerThingsShop.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ComputerThingsShop"
+        mc:Ignorable="d"
+        Title="RegisterWindow" Height="530" Width="300" Background="{x:Null}" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" Topmost="True">
+    <Border CornerRadius="20" Background="#FF454545">
+        <StackPanel Margin="20">
+            <Label Content="Register" Foreground="White" FontSize="40" HorizontalAlignment="Center"/>
+            <Separator></Separator>
+            <Label Content="Username" Foreground="White" FontSize="20"/>
+            <TextBox Name="Username" Height="30" Background="#FF454545" Foreground="White" SelectionBrush="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UseLayoutRounding="False" BorderThickness="0,0,0,1" FontSize="20"/>
+            <Label Content="Name" Foreground="White" FontSize="20"/>
+            <TextBox Name="Name" Height="30" Background="#FF454545" Foreground="White" SelectionBrush="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UseLayoutRounding="False" BorderThickness="0,0,0,1" FontSize="20"/>
+            <Label Content="Surname" Foreground="White" FontSize="20"/>
+            <TextBox Name="Surname" Height="30" Background="#FF454545" Foreground="White" SelectionBrush="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UseLayoutRounding="False" BorderThickness="0,0,0,1" FontSize="20"/>
+            <Label Content="PhoneNumber" Foreground="White" FontSize="20"/>
+            <TextBox Name="PhoneNumber" Height="30" Background="#FF454545" Foreground="White" SelectionBrush="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UseLayoutRounding="False" BorderThickness="0,0,0,1" FontSize="20"/>
+            <Label Content="Password" Foreground="White" FontSize="20"/>
+            <PasswordBox Name="UserPassword" Height="30" Background="#FF454545" Foreground="White" SelectionBrush="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0,0,0,1" FontSize="20"/>
+            <Button Name="RegisterButton" Content="Register" Foreground="White" Background="Gray" Height="30" Width="150" Margin="10" FontSize="20"/>
+            <Button Name="CancelButton" Content="Cancel" Foreground="White"  Background="Gray" Height="30" Width="150" FontSize="20"/>
+        </StackPanel>
+    </Border>
+</Window>

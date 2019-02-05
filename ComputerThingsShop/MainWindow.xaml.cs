@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ComputerThingsShop.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,13 +21,15 @@ namespace ComputerThingsShop
     /// </summary>
     public partial class MainWindow : Window
     {
-        LoginWindow LoginWindow = new LoginWindow();
+        LoginWindow loginWindow = new LoginWindow();
+        RegisterWindow registerWindow = new RegisterWindow();
+
         public MainWindow()
         {
-            LoginWindow.LoginButton.Click += LoginButton_Click;
-            LoginWindow.RegisterButton.Click += RegisterButton_Click;
-            LoginWindow.ExitButton.Click += ExitButton_Click;
-            LoginWindow.ShowDialog();
+            loginWindow.LoginButton.Click += LoginButton_Click;
+            loginWindow.RegisterButton.Click += RegisterButton_Click;
+            loginWindow.ExitButton.Click += ExitButton_Click;
+            loginWindow.ShowDialog();
             InitializeComponent();
         }
 
@@ -37,7 +40,26 @@ namespace ComputerThingsShop
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            registerWindow.RegisterButton.Click += Registration;
+            registerWindow.CancelButton.Click += (object sender1, RoutedEventArgs e1) => registerWindow.Close();
+            registerWindow.ShowDialog();
+        }
+
+        private void Registration(object sender, RoutedEventArgs e)
+        {
+            using (ApplicationContext context = new ApplicationContext("ComputerThingsDB"))
+            {
+                context.Users.Add(new User()
+                {
+                    UserName = registerWindow.Username.Text,
+                    Password = registerWindow.UserPassword.Password,
+                    Name = registerWindow.Name.Text,
+                    Surname = registerWindow.Surname.Text,
+                    PhoneNumber = registerWindow.PhoneNumber.Text
+                });
+                context.SaveChanges();
+            }
+            registerWindow.Close();
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -45,12 +67,12 @@ namespace ComputerThingsShop
             using (ApplicationContext context = new ApplicationContext("ComputerThingsDB"))
             {
                 var Users = context.Users;
-                var User = Users.FirstOrDefault(user => user.UserName == LoginWindow.Username.Text);
+                var User = Users.FirstOrDefault(user => user.UserName == loginWindow.Username.Text);
                 if (User != null)
                 {
-                    if (User.Password == LoginWindow.UserPassword.Password)
+                    if (User.Password == loginWindow.UserPassword.Password)
                     {
-                        LoginWindow.Close();
+                        loginWindow.Close();
                     }
                     else { MessageBox.Show("Incorrect password!"); }
                 }
