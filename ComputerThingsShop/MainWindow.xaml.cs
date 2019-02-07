@@ -1,4 +1,5 @@
 ﻿using ComputerThingsShop.Models;
+using ComputerThingsShop.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,13 +25,40 @@ namespace ComputerThingsShop
         LoginWindow loginWindow = new LoginWindow();
         RegisterWindow registerWindow = new RegisterWindow();
 
+        //TreeView HeaderTemplate = new TreeView();
+
         public MainWindow()
         {
             loginWindow.LoginButton.Click += LoginButton_Click;
             loginWindow.RegisterButton.Click += RegisterButton_Click;
             loginWindow.ExitButton.Click += ExitButton_Click;
-            loginWindow.ShowDialog();
+            //loginWindow.ShowDialog();
             InitializeComponent();
+
+            this.ComputerCasesButton.Selected += (object sender, RoutedEventArgs e) =>
+                this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.ComputerCases;
+
+            this.CooldownSystemsButton.Selected += (object sender, RoutedEventArgs e) =>
+                this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.CooldownSystems;
+
+            this.CPUButton.Selected += (object sender, RoutedEventArgs e) =>
+                this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.CPU;
+
+            this.GPUButton.Selected += (object sender, RoutedEventArgs e) => 
+                this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.GPU;
+
+            this.HardDrivesButton.Selected += (object sender, RoutedEventArgs e) => 
+                this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.HardDrives;
+
+            this.MotherboardsButton.Selected += (object sender, RoutedEventArgs e) => 
+                this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.Motherboards;
+
+            this.PowerSuppliesButton.Selected += (object sender, RoutedEventArgs e) => 
+                this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.PowerSupplies;
+
+            this.RAMButton.Selected += (object sender, RoutedEventArgs e) => 
+                this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.RAM;
+
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)

@@ -4,9 +4,38 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComputerThingsShop"
+        xmlns:uc="clr-namespace:ComputerThingsShop.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" WindowStartupLocation="CenterScreen">
+        Title="Computer Things Shop" Height="700" Width="1050" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" Icon="C:\Users\alex1\source\repos\ComputerThingsShop\ComputerThingsShop\Images\Icon.png">
     <Grid>
-        
+        <TreeView Width="390" Height="670" Margin="0,0,650,0">
+            <TreeView.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF27154E" Offset="0"/>
+                    <GradientStop Color="MediumPurple" Offset="1"/>
+                </LinearGradientBrush>
+            </TreeView.Background>
+
+            <TreeViewItem HorizontalAlignment="Left" VerticalAlignment="Center" Header="Catalog" Height="400" Foreground="White" FontSize="30" Margin="0,70">
+                <TreeViewItem Name="ComputerCasesButton" Header="Computer Cases" Foreground="White" FontSize="20"/>
+                <TreeViewItem Name="CooldownSystemsButton" Header="Cooldown Systems" Foreground="White" FontSize="20"/>
+                <TreeViewItem Name="CPUButton" Header="CPU" Foreground="White" FontSize="20"/>
+                <TreeViewItem Name="GPUButton" Header="GPU" Foreground="White" FontSize="20"/>
+                <TreeViewItem Name="HardDrivesButton" Header="Hard Drives" Foreground="White" FontSize="20"/>
+                <TreeViewItem Name="MotherboardsButton" Header="Motherboards" Foreground="White" FontSize="20"/>
+                <TreeViewItem Name="PowerSuppliesButton" Header="Power Supplies" Foreground="White" FontSize="20"/>
+                <TreeViewItem Name="RAMButton" Header="RAM" Foreground="White" FontSize="20"/>
+            </TreeViewItem>
+
+            <TreeViewItem HorizontalAlignment="Left" VerticalAlignment="Center" Header="Discount" Height="40" Foreground="White" FontSize="30"/>
+            <TreeViewItem HorizontalAlignment="Left" VerticalAlignment="Center" Header="Basket" Height="40" Foreground="White" FontSize="30"/>
+            <TreeViewItem HorizontalAlignment="Left" VerticalAlignment="Center" Header="Account" Height="40" Foreground="White" FontSize="30"/>
+
+        </TreeView>
+        <Label Content="Menu" Height="80" Foreground="White" FontSize="50" Margin="20,0,700,600" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <uc:ComponentsListItemControl x:Name="itemsListControl" Margin="380,0,0,0">
+            
+        </uc:ComponentsListItemControl>
     </Grid>
+
 </Window>

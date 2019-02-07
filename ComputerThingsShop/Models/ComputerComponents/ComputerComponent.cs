@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ComputerThingsShop.Models.ComputerComponents
 {
-    abstract class ComputerComponent
+    public abstract class ComputerComponent
     {
         private int count;
         private double price;
