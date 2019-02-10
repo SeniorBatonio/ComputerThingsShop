@@ -55,11 +55,21 @@ namespace ComputerThingsShop.UserControls
             foreach (var component in componentsList)
             {
                 var item = new ComponentItemControl();
+                item.Item = component;
                 item.Brand.Text = component.Brand;
                 item.Model.Text = component.Model;
-                item.Price.Text = $"{component.Price}грн";
+                item.Price.Text = $"{component.Price}UAH";
+                item.MouseLeftButtonDown += Item_MouseLeftButtonDown;
                 list.Add(item);
             }
+        }
+
+        private void Item_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var item = (ComponentItemControl)sender;
+            var componentInformation = new ComponentInformationControl();
+            componentInformation.Brand.Content = item.Brand.Text;
+            componentInformation.Brand.Content = item.Brand.Text;
         }
     }
 }

@@ -24,8 +24,7 @@ namespace ComputerThingsShop
     {
         LoginWindow loginWindow = new LoginWindow();
         RegisterWindow registerWindow = new RegisterWindow();
-
-        //TreeView HeaderTemplate = new TreeView();
+        private ComponentsListItemControl itemsListControl = new ComponentsListItemControl();
 
         public MainWindow()
         {
@@ -34,6 +33,9 @@ namespace ComputerThingsShop
             loginWindow.ExitButton.Click += ExitButton_Click;
             //loginWindow.ShowDialog();
             InitializeComponent();
+
+            this.ActiveField.Content = itemsListControl;
+            this.itemsListControl.ListItems.SelectionChanged += ListItems_SelectionChanged;
 
             this.ComputerCasesButton.Selected += (object sender, RoutedEventArgs e) =>
                 this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.ComputerCases;
@@ -59,6 +61,21 @@ namespace ComputerThingsShop
             this.RAMButton.Selected += (object sender, RoutedEventArgs e) => 
                 this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.RAM;
 
+        }
+
+        private void ListItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var componentInformation = new ComponentInformationControl();
+            var curItem = (ComponentItemControl)this.itemsListControl.ListItems.SelectedItem;
+            if (curItem != null)
+            {
+                componentInformation.BackButton.Click += (object sender1, RoutedEventArgs e1) => this.ActiveField.Content = itemsListControl;
+                componentInformation.Brand.Content = curItem.Brand.Text;
+                componentInformation.Model.Content = curItem.Model.Text;
+                componentInformation.Price.Content = curItem.Price.Text;
+                componentInformation.Characteristics.Text = curItem.Item.ToString();
+                this.ActiveField.Content = componentInformation;
+            }
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)

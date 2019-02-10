@@ -49,6 +49,17 @@ namespace ComputerThingsShop.Models.ComputerComponents
             }
         }
 
-
+        public override string ToString()
+        {
+            string result = "";
+            result += $"Memory capasity: {MemoryCapasity}Gb \n";
+            result += $"Memory type: {MemoryType}\n";
+            result += $"Interface connection: {InterfaceConnection}\n";
+            result += $"Cooldown system: {CooldownSystem}\n";
+            result += "Additional nutrition: ";
+            result += (AdditionalNutrition > 0) ? $"{AdditionalNutrition}pin\n" : "No\n";
+            result += $"Size: {Size}mm\n";
+            return result;
+        }
     }
 }

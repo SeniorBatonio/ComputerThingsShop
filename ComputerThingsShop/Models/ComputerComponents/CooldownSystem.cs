@@ -60,5 +60,18 @@ namespace ComputerThingsShop.Models.ComputerComponents
             }
         }
         public string TypeOfBearing { get; set; }//тип 
+
+        public override string ToString()
+        {
+            string result = "";
+            result += $"Main function: {MainFunction} \n";
+            result += $"Type: {Type}\n";
+            result += $"Diametr of fan: {Diametr}centimetr(s)\n";
+            result += $"Rotation speed: {RotationSpeed}RPM\n";
+            result += $"Noise level: {NoiseLevel}db\n";
+            result += $"MaxTDP: {MaxTDP}W\n";
+            result += $"Type of bearing: {TypeOfBearing}\n";
+            return result;
+        }
     }
 }

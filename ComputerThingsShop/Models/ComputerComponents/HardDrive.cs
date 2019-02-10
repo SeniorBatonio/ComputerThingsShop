@@ -47,5 +47,16 @@ namespace ComputerThingsShop.Models.ComputerComponents
             }
         }
         public string Connection { get; set; }
+
+        public override string ToString()
+        {
+            string result = "";
+            result += $"Drive type: {DriveType} \n";
+            result += $"Capasity: {Capasity}Gb\n";
+            result += $"WriteSpeed: {WriteSpeed}MbPS\n";
+            result += $"ReadSpeed: {ReadSpeed}MbPS\n";
+            result += $"Connection: {Connection}\n";
+            return result;
+        }
     }
 }

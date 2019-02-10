@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:ComputerThingsShop"
         xmlns:uc="clr-namespace:ComputerThingsShop.UserControls"
         mc:Ignorable="d"
-        Title="Computer Things Shop" Height="700" Width="1050" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" Icon="C:\Users\alex1\source\repos\ComputerThingsShop\ComputerThingsShop\Images\Icon.png">
+        Title="Computer Things Shop" Height="700" Width="1050" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" Icon="C:\Users\alex1\source\repos\ComputerThingsShop\ComputerThingsShop\Images\Icon.png" WindowStyle="SingleBorderWindow">
     <Grid>
-        <TreeView Width="390" Height="670" Margin="0,0,650,0">
+        <TreeView Margin="0,0,670,0">
             <TreeView.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#FF27154E" Offset="0"/>
@@ -16,7 +16,7 @@
                 </LinearGradientBrush>
             </TreeView.Background>
 
-            <TreeViewItem HorizontalAlignment="Left" VerticalAlignment="Center" Header="Catalog" Height="400" Foreground="White" FontSize="30" Margin="0,70">
+            <TreeViewItem HorizontalAlignment="Left" VerticalAlignment="Center" Header="Catalog" Height="400" Foreground="White" FontSize="30" Margin="0,70,40,50">
                 <TreeViewItem Name="ComputerCasesButton" Header="Computer Cases" Foreground="White" FontSize="20"/>
                 <TreeViewItem Name="CooldownSystemsButton" Header="Cooldown Systems" Foreground="White" FontSize="20"/>
                 <TreeViewItem Name="CPUButton" Header="CPU" Foreground="White" FontSize="20"/>
@@ -33,9 +33,9 @@
 
         </TreeView>
         <Label Content="Menu" Height="80" Foreground="White" FontSize="50" Margin="20,0,700,600" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <uc:ComponentsListItemControl x:Name="itemsListControl" Margin="380,0,0,0">
-            
-        </uc:ComponentsListItemControl>
+        <UserControl Name="ActiveField" Margin="360,0,0,0">
+
+        </UserControl>
     </Grid>
 
 </Window>

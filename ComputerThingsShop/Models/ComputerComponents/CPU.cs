@@ -61,5 +61,19 @@ namespace ComputerThingsShop.Models.ComputerComponents
             }
         }
 
+        public override string ToString()
+        {
+            string result = "";
+            result += $"Socket type: {SocketType} \n";
+            result += "Overklocking: ";
+            result += (Overklocking) ? "Yes\n" : "No\n";
+            result += $"Cores: {Cores}\n";
+            result += "Embedded GPU: ";
+            result += (EmbeddedGPU) ? "Yes\n" : "No\n";
+            result += $"Technical process: {TechnicalProcess}nm\n";
+            result += $"Heat transfer: {HeatTransfer}W\n";
+            result += $"Frequency: {Frequency}GHz\n";
+            return result;
+        }
     }
 }

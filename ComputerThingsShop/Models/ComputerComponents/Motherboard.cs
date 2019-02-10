@@ -15,7 +15,7 @@ namespace ComputerThingsShop.Models.ComputerComponents
         public string FormFactor { get; set; }
         public string Chipset { get; set; }
         public string TypeOfRAM { get; set; }
-        int NumberRAMSocket
+        public int NumberRAMSocket
         {
             get => numberRAMsocket;
             set
@@ -27,7 +27,7 @@ namespace ComputerThingsShop.Models.ComputerComponents
             }
         }
         public string FrontPanelSocket { get; set; } // задняя панель с разёмами под USB, монитор и тд
-        int PowerFromProcessor
+        public int PowerFromProcessor
         {
             get => powerFromProcessor;
             set
@@ -37,6 +37,19 @@ namespace ComputerThingsShop.Models.ComputerComponents
                 else
                     powerFromProcessor = value;
             }
+        }
+
+        public override string ToString()
+        {
+            string result = "";
+            result += $"Buildin socket: {BuildinSocket} \n";
+            result += $"Form factor: {FormFactor}\n";
+            result += $"Chipset: {Chipset}\n";
+            result += $"Type of RAM: {TypeOfRAM}\n";
+            result += $"Count of RAM sockets: {NumberRAMSocket}\n";
+            result += $"Front panel socket: {FrontPanelSocket}\n";
+            result += $"Power from processor: {PowerFromProcessor}pin\n";
+            return result;
         }
     }
 }

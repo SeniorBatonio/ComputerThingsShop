@@ -1,5 +1,4 @@
-﻿using ComputerThingsShop.Models.ComputerComponents;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,13 +16,11 @@ using System.Windows.Shapes;
 namespace ComputerThingsShop.UserControls
 {
     /// <summary>
-    /// Логика взаимодействия для ComponentItemControl.xaml
+    /// Логика взаимодействия для ComponentInformationControl.xaml
     /// </summary>
-    public partial class ComponentItemControl : UserControl
+    public partial class ComponentInformationControl : UserControl
     {
-        public ComputerComponent Item { get; set; }
-
-        public ComponentItemControl()
+        public ComponentInformationControl()
         {
             InitializeComponent();
         }

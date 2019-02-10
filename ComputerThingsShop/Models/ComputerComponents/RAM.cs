@@ -48,5 +48,19 @@ namespace ComputerThingsShop.Models.ComputerComponents
                     latency = value;
             }
         }
+
+        public override string ToString()
+        {
+            string result = "";
+            result += $"Memory capasity: {MemoryCapasity}Gb \n";
+            result += $"Type: {Type}\n";
+            result += "Passive cooling: ";
+            result += (PassiveCooling) ? "Yes\n" : "No\n";
+            result += $"Frequency: {Frequency}Hz\n";
+            result += "Overclocking: ";
+            result += (Overclocking) ? "Yes\n" : "No\n";
+            result += $"Latency: {Latency}\n";
+            return result;
+        }
     }
 }
