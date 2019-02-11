@@ -1,19 +1,8 @@
 ﻿using ComputerThingsShop.Models;
 using ComputerThingsShop.UserControls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace ComputerThingsShop
 {
@@ -22,48 +11,62 @@ namespace ComputerThingsShop
     /// </summary>
     public partial class MainWindow : Window
     {
-        LoginWindow loginWindow = new LoginWindow();
-        RegisterWindow registerWindow = new RegisterWindow();
+        private LoginWindow loginWindow = new LoginWindow();
         private ComponentsListItemControl itemsListControl = new ComponentsListItemControl();
 
         public MainWindow()
         {
-            loginWindow.LoginButton.Click += LoginButton_Click;
-            loginWindow.RegisterButton.Click += RegisterButton_Click;
-            loginWindow.ExitButton.Click += ExitButton_Click;
-            loginWindow.ShowDialog();
+            //loginWindow.ShowDialog();
             InitializeComponent();
 
-            this.ActiveField.Content = itemsListControl;
-            this.itemsListControl.ListItems.SelectionChanged += ListItems_SelectionChanged;
+            this.ComputerCasesButton.Selected += ListItemSelectionChanged;
+            this.CooldownSystemsButton.Selected += ListItemSelectionChanged;
+            this.CPUButton.Selected += ListItemSelectionChanged;
+            this.GPUButton.Selected += ListItemSelectionChanged;
+            this.HardDrivesButton.Selected += ListItemSelectionChanged;
+            this.MotherboardsButton.Selected += ListItemSelectionChanged;
+            this.PowerSuppliesButton.Selected += ListItemSelectionChanged;
+            this.RAMButton.Selected += ListItemSelectionChanged;
 
-            this.ComputerCasesButton.Selected += (object sender, RoutedEventArgs e) =>
-                this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.ComputerCases;
-
-            this.CooldownSystemsButton.Selected += (object sender, RoutedEventArgs e) =>
-                this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.CooldownSystems;
-
-            this.CPUButton.Selected += (object sender, RoutedEventArgs e) =>
-                this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.CPU;
-
-            this.GPUButton.Selected += (object sender, RoutedEventArgs e) => 
-                this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.GPU;
-
-            this.HardDrivesButton.Selected += (object sender, RoutedEventArgs e) => 
-                this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.HardDrives;
-
-            this.MotherboardsButton.Selected += (object sender, RoutedEventArgs e) => 
-                this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.Motherboards;
-
-            this.PowerSuppliesButton.Selected += (object sender, RoutedEventArgs e) => 
-                this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.PowerSupplies;
-
-            this.RAMButton.Selected += (object sender, RoutedEventArgs e) => 
-                this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.RAM;
-
+            this.itemsListControl.ListItems.SelectionChanged += ItemSelectionChanged;
         }
 
-        private void ListItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ListItemSelectionChanged(object sender, RoutedEventArgs e)
+        {
+            var item = (TreeViewItem)sender;
+            var itemsType = item.Header;
+            itemsListControl.Header.Content = itemsType;
+            switch(itemsType)
+            {
+                case "Computer Cases":
+                    this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.ComputerCases;
+                    break;
+                case "Cooldown Systems":
+                    this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.CooldownSystems;
+                    break;
+                case "CPU":
+                    this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.CPU;
+                    break;
+                case "GPU":
+                    this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.GPU;
+                    break;
+                case "Hard Drives":
+                    this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.HardDrives;
+                    break;
+                case "Motherboards":
+                    this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.Motherboards;
+                    break;
+                case "Power Supplies":
+                    this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.PowerSupplies;
+                    break;
+                case "RAM":
+                    this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.RAM;
+                    break;
+            }
+            this.ActiveField.Content = itemsListControl;
+        }
+
+        private void ItemSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var componentInformation = new ComponentInformationControl();
             var curItem = (ComponentItemControl)this.itemsListControl.ListItems.SelectedItem;
@@ -76,53 +79,6 @@ namespace ComputerThingsShop
                 componentInformation.Price.Content = curItem.Price.Text;
                 componentInformation.Characteristics.Text = curItem.Item.ToString();
                 this.ActiveField.Content = componentInformation;
-            }
-        }
-
-        private void ExitButton_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-        private void RegisterButton_Click(object sender, RoutedEventArgs e)
-        {
-            registerWindow.RegisterButton.Click += Registration;
-            registerWindow.CancelButton.Click += (object sender1, RoutedEventArgs e1) => registerWindow.Close();
-            registerWindow.ShowDialog();
-        }
-
-        private void Registration(object sender, RoutedEventArgs e)
-        {
-            using (ApplicationContext context = new ApplicationContext("ComputerThingsDB"))
-            {
-                context.Users.Add(new User()
-                {
-                    UserName = registerWindow.Username.Text,
-                    Password = registerWindow.UserPassword.Password,
-                    Name = registerWindow.Name.Text,
-                    Surname = registerWindow.Surname.Text,
-                    PhoneNumber = registerWindow.PhoneNumber.Text
-                });
-                context.SaveChanges();
-            }
-            registerWindow.Close();
-        }
-
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
-        {
-            using (ApplicationContext context = new ApplicationContext("ComputerThingsDB"))
-            {
-                var Users = context.Users;
-                var User = Users.FirstOrDefault(user => user.UserName == loginWindow.Username.Text);
-                if (User != null)
-                {
-                    if (User.Password == loginWindow.UserPassword.Password)
-                    {
-                        loginWindow.Close();
-                    }
-                    else { MessageBox.Show("Incorrect password!"); }
-                }
-                else { MessageBox.Show("Incorrect login!"); }
             }
         }
     }

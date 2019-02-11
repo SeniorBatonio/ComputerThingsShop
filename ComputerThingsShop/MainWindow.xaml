@@ -27,8 +27,7 @@
                 <TreeViewItem Name="RAMButton" Header="RAM" Foreground="White" FontSize="20"/>
             </TreeViewItem>
 
-            <TreeViewItem HorizontalAlignment="Left" VerticalAlignment="Center" Header="Discount" Height="40" Foreground="White" FontSize="30"/>
-            <TreeViewItem HorizontalAlignment="Left" VerticalAlignment="Center" Header="Basket" Height="40" Foreground="White" FontSize="30"/>
+            <TreeViewItem HorizontalAlignment="Left" VerticalAlignment="Center" Header="Basket" Height="40" Foreground="White" FontSize="30" Margin="0,50,0,0"/>
             <TreeViewItem HorizontalAlignment="Left" VerticalAlignment="Center" Header="Account" Height="40" Foreground="White" FontSize="30"/>
 
         </TreeView>

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="650">
     <Grid Background="White">
-        <Label Content="Components" Margin="20,0,20,600" FontSize="30"/>
+        <Label Name="Header" Content="Components" Margin="20,0,20,600" FontSize="30"/>
         <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,50,0,0">
             <ListView Name="ListItems">
                 <ListViewItem Height="100">
