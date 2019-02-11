@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ComputerThingsShop"
         xmlns:uc="clr-namespace:ComputerThingsShop.UserControls"
         mc:Ignorable="d"
-        Title="Computer Things Shop" Height="700" Width="1050" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" Icon="C:\Users\alex1\source\repos\ComputerThingsShop\ComputerThingsShop\Images\Icon.png" WindowStyle="SingleBorderWindow">
+        Title="Computer Things Shop" Height="700" Width="1050" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" Icon="C:\Users\alex1\source\repos\ComputerThingsShop\ComputerThingsShop\bin\Debug\Images\Icon.png" WindowStyle="SingleBorderWindow">
     <Grid>
         <TreeView Margin="0,0,670,0">
             <TreeView.Background>

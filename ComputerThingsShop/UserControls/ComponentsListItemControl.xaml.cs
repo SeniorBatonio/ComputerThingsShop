@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,6 +60,10 @@ namespace ComputerThingsShop.UserControls
                 item.Brand.Text = component.Brand;
                 item.Model.Text = component.Model;
                 item.Price.Text = $"{component.Price}UAH";
+                if (component.ImageSource != null)
+                {
+                    item.ComponentPhoto.Source = new BitmapImage(new Uri(Directory.GetCurrentDirectory() + component.ImageSource));
+                }
                 item.MouseLeftButtonDown += Item_MouseLeftButtonDown;
                 list.Add(item);
             }

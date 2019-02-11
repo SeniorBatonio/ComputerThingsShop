@@ -31,7 +31,7 @@ namespace ComputerThingsShop
             loginWindow.LoginButton.Click += LoginButton_Click;
             loginWindow.RegisterButton.Click += RegisterButton_Click;
             loginWindow.ExitButton.Click += ExitButton_Click;
-            //loginWindow.ShowDialog();
+            loginWindow.ShowDialog();
             InitializeComponent();
 
             this.ActiveField.Content = itemsListControl;
@@ -70,6 +70,7 @@ namespace ComputerThingsShop
             if (curItem != null)
             {
                 componentInformation.BackButton.Click += (object sender1, RoutedEventArgs e1) => this.ActiveField.Content = itemsListControl;
+                componentInformation.ComponentPhoto.Source = curItem.ComponentPhoto.Source;
                 componentInformation.Brand.Content = curItem.Brand.Text;
                 componentInformation.Model.Content = curItem.Model.Text;
                 componentInformation.Price.Content = curItem.Price.Text;
