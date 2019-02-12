@@ -62,7 +62,7 @@ namespace ComputerThingsShop.UserControls
         private void Item_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             var item = (ComponentItemControl)sender;
-            var componentInformation = new ComponentInformationControl();
+            var componentInformation = new ComponentInformationControl(item);
             componentInformation.Brand.Content = item.Brand.Text;
             componentInformation.Brand.Content = item.Brand.Text;
         }

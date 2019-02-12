@@ -13,10 +13,11 @@ namespace ComputerThingsShop
     {
         private LoginWindow loginWindow = new LoginWindow();
         private ComponentsListItemControl itemsListControl = new ComponentsListItemControl();
+        private Basket basket = new Basket();
 
         public MainWindow()
         {
-            //loginWindow.ShowDialog();
+           // loginWindow.ShowDialog();
             InitializeComponent();
 
             this.ComputerCasesButton.Selected += ListItemSelectionChanged;
@@ -27,6 +28,7 @@ namespace ComputerThingsShop
             this.MotherboardsButton.Selected += ListItemSelectionChanged;
             this.PowerSuppliesButton.Selected += ListItemSelectionChanged;
             this.RAMButton.Selected += ListItemSelectionChanged;
+            this.BasketButton.Selected += ListItemSelectionChanged;
 
             this.itemsListControl.ListItems.SelectionChanged += ItemSelectionChanged;
         }
@@ -40,36 +42,47 @@ namespace ComputerThingsShop
             {
                 case "Computer Cases":
                     this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.ComputerCases;
+                    this.ActiveField.Content = itemsListControl;
                     break;
                 case "Cooldown Systems":
                     this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.CooldownSystems;
+                    this.ActiveField.Content = itemsListControl;
                     break;
                 case "CPU":
                     this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.CPU;
+                    this.ActiveField.Content = itemsListControl;
                     break;
                 case "GPU":
                     this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.GPU;
+                    this.ActiveField.Content = itemsListControl;
                     break;
                 case "Hard Drives":
                     this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.HardDrives;
+                    this.ActiveField.Content = itemsListControl;
                     break;
                 case "Motherboards":
                     this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.Motherboards;
+                    this.ActiveField.Content = itemsListControl;
                     break;
                 case "Power Supplies":
                     this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.PowerSupplies;
+                    this.ActiveField.Content = itemsListControl;
                     break;
                 case "RAM":
                     this.itemsListControl.ListItems.ItemsSource = ComponentsListItemControl.RAM;
+                    this.ActiveField.Content = itemsListControl;
+                    break;
+                case "Basket":
+                    this.ActiveField.Content = new BasketControl();
                     break;
             }
-            this.ActiveField.Content = itemsListControl;
+
         }
 
         private void ItemSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var componentInformation = new ComponentInformationControl();
             var curItem = (ComponentItemControl)this.itemsListControl.ListItems.SelectedItem;
+            var componentInformation = new ComponentInformationControl(curItem);
             if (curItem != null)
             {
                 componentInformation.BackButton.Click += (object sender1, RoutedEventArgs e1) => this.ActiveField.Content = itemsListControl;

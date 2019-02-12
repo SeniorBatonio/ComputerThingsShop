@@ -1,10 +1,10 @@
-﻿using ComputerThingsShop.Models.ComputerComponents;
+﻿using ComputerThingsShop.UserControls;
 using System.Collections.Generic;
 
 namespace ComputerThingsShop.Models
 {
     class Basket
     {
-        List<ComputerComponent> basket = new List<ComputerComponent>();
+        public static List<ComponentItemControl> basket = new List<ComponentItemControl>();
     }
 }
