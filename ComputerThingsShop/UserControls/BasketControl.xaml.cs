@@ -1,4 +1,5 @@
 ﻿using ComputerThingsShop.Models;
+using ComputerThingsShop.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,7 @@ namespace ComputerThingsShop.UserControls
         private void BuyButton_Click(object sender, RoutedEventArgs e)
         {
             this.ListItems.ItemsSource = null;
+            new ApplicationMessageBox().Show("The order is accepted");
         }
     }
 }

@@ -65,6 +65,9 @@
     <Compile Include="UserControls\BasketControl.xaml.cs">
       <DependentUpon>BasketControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\ApplicationMessageBox.xaml.cs">
+      <DependentUpon>ApplicationMessageBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>
@@ -78,6 +81,10 @@
       <DependentUpon>ComponentsListItemControl.xaml</DependentUpon>
     </Compile>
     <Page Include="UserControls\BasketControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ApplicationMessageBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
