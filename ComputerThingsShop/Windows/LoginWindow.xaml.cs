@@ -1,4 +1,5 @@
 ﻿using ComputerThingsShop.Models;
+using ComputerThingsShop.Windows;
 using System.Linq;
 using System.Windows;
 
@@ -10,6 +11,7 @@ namespace ComputerThingsShop
     public partial class LoginWindow : Window
     {
         private RegisterWindow registerWindow = new RegisterWindow();
+        public User User { get; set; }
 
         public LoginWindow()
         {
@@ -35,17 +37,18 @@ namespace ComputerThingsShop
         {
             using (ApplicationContext context = new ApplicationContext("ComputerThingsDB"))
             {
-                var Users = context.Users;
-                var User = Users.FirstOrDefault(user => user.UserName == this.Username.Text);
-                if (User != null)
+                var users = context.Users;
+                var user = users.FirstOrDefault(User => User.UserName == this.Username.Text);
+                if (user != null)
                 {
-                    if (User.Password == this.UserPassword.Password)
+                    if (user.Password == this.UserPassword.Password)
                     {
+                        this.User = user;
                         this.Close();
                     }
-                    else { MessageBox.Show("Incorrect password!"); }
+                    else { new ApplicationMessageBox().Show("Incorrect password!"); }
                 }
-                else { MessageBox.Show("Incorrect login!"); }
+                else { new ApplicationMessageBox().Show("Incorrect login!"); }
             }
         }
 

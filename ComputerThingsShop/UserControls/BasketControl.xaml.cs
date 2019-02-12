@@ -32,6 +32,7 @@ namespace ComputerThingsShop.UserControls
 
         private void BuyButton_Click(object sender, RoutedEventArgs e)
         {
+            Basket.Buy();
             this.ListItems.ItemsSource = null;
             new ApplicationMessageBox().Show("The order is accepted");
         }

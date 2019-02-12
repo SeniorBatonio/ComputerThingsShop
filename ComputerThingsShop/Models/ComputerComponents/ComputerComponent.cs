@@ -33,5 +33,7 @@ namespace ComputerThingsShop.Models.ComputerComponents
         public string Model { get; set; }
         public string AboutComponent { get; set; }
         public string ImageSource { get; set; }
+
+        public virtual void Buy() { }
     };
 }

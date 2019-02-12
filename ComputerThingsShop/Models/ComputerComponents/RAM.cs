@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace ComputerThingsShop.Models.ComputerComponents
 {
@@ -57,6 +58,25 @@ namespace ComputerThingsShop.Models.ComputerComponents
             result += (Overclocking) ? "Yes\n" : "No\n";
             result += $"Latency: {Latency}\n";
             return result;
+        }
+
+        public override void Buy()
+        {
+            using (ApplicationContext context = new ApplicationContext("ComputerThingsDB"))
+            {
+                var boughtItem = context.RAMs.FirstOrDefault(item => item.ID == this.ID);
+                boughtItem.Count = (boughtItem != null) ? boughtItem.Count - 1 : boughtItem.Count;
+                context.Orders.Add(new Order()
+                {
+                    UserName = MainWindow.User.Name,
+                    UserSurname = MainWindow.User.Surname,
+                    UserPhoneNumber = MainWindow.User.PhoneNumber,
+                    ComponentBrand = boughtItem.Brand,
+                    ComponentModel = boughtItem.Model,
+                    ComponentPrice = boughtItem.Price
+                });
+                context.SaveChanges();
+            }
         }
     }
 }

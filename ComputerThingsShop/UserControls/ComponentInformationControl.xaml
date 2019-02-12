@@ -12,7 +12,7 @@
         <Label Name="Brand" Content="Brand" Margin="270,60,20,540" FontSize="30"/>
         <Label Name="Model" Content="Model" Margin="270,120,20,480" FontSize="30"/>
         <Label Name="Price" Content="Price" Margin="270,170,20,430" FontSize="25"/>
-        <Button Name="BuyButton" Content="Buy" Margin="350,220,100,380" Foreground="White">
+        <Button Name="BuyButton" Content="Add to basket" Margin="350,220,100,380" Foreground="White">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#FF27154E" Offset="0"/>

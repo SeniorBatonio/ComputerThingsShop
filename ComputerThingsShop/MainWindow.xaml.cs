@@ -14,12 +14,13 @@ namespace ComputerThingsShop
         private LoginWindow loginWindow = new LoginWindow();
         private ComponentsListItemControl itemsListControl = new ComponentsListItemControl();
         private Basket basket = new Basket();
+        public static User User { get; set; }
 
         public MainWindow()
         {
-           // loginWindow.ShowDialog();
+            loginWindow.ShowDialog();
             InitializeComponent();
-
+            User = loginWindow.User;
             this.ComputerCasesButton.Selected += ListItemSelectionChanged;
             this.CooldownSystemsButton.Selected += ListItemSelectionChanged;
             this.CPUButton.Selected += ListItemSelectionChanged;

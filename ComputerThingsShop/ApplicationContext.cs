@@ -23,6 +23,6 @@ namespace ComputerThingsShop
         public DbSet<PowerSupply> PowerSupplies { get; set; }
         public DbSet<RAM> RAMs { get; set; }
         public DbSet<User> Users { get; set; }
-
+        public DbSet<Order> Orders { get; set; }
     }
 }
