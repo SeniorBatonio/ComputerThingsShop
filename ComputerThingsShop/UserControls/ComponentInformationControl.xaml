@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="650">
     <Grid Background="White">
-        <Button Name="BackButton" Content="←" Margin="5,5,600,610" FontSize="20" BorderBrush="{x:Null}" Background="{x:Null}"/>
+        <Button Name="BackButton" Content="←" Margin="5,5,620,625" FontSize="20" BorderBrush="{x:Null}" Background="{x:Null}" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
         <Image Name="ComponentPhoto" Margin="20,40,400,380"/>
         <Label Name="Brand" Content="Brand" Margin="270,60,20,540" FontSize="30"/>
         <Label Name="Model" Content="Model" Margin="270,120,20,480" FontSize="30"/>

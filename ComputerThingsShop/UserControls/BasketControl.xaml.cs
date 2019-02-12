@@ -22,18 +22,28 @@ namespace ComputerThingsShop.UserControls
     /// </summary>
     public partial class BasketControl : UserControl
     {
+        private double price = 0;
+
         public BasketControl()
         {
             InitializeComponent();
             this.ListItems.Items.Clear();
+            this.ListItems.Items.IsLiveFiltering = false;
             this.ListItems.ItemsSource = Basket.basket;
             this.BuyButton.Click += BuyButton_Click;
+            var items = (List<ComponentItemControl>)this.ListItems.ItemsSource;
+            foreach (var item in items)
+            {
+                price += item.Item.Price;
+            }
+            this.PriceBlock.Text = $"Price: {price}UAH";
         }
 
         private void BuyButton_Click(object sender, RoutedEventArgs e)
         {
             Basket.Buy();
             this.ListItems.ItemsSource = null;
+            price = 0;
             new ApplicationMessageBox().Show("The order is accepted");
         }
     }

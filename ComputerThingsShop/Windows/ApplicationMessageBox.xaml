@@ -8,7 +8,7 @@
         Title="ApplicationMessageBox" Height="150" Width="350" Background="{x:Null}" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" Topmost="True">
     <Border CornerRadius="20" Background="#FF454545">
         <StackPanel Margin="20" HorizontalAlignment="Center">
-            <TextBlock Name="Message" Foreground="White" FontSize="30" Height="70" VerticalAlignment="Center" HorizontalAlignment="Center" Width="310" MaxWidth="310" MaxHeight="70"/>
+            <TextBlock Name="Message" Foreground="White" FontSize="30" Height="70" VerticalAlignment="Center" HorizontalAlignment="Center" Width="310" MaxWidth="310" MaxHeight="70" TextAlignment="Center"/>
             <Button Name="OkButton" Content="OK" Foreground="White"  Background="Gray" Height="30" Width="150" Margin="10" FontSize="20"/>
         </StackPanel>
     </Border>

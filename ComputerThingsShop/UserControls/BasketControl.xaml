@@ -8,7 +8,8 @@
               d:DesignHeight="650" d:DesignWidth="650">
     <Grid Background="White">
         <Label Name="Header" Content="Basket" Margin="20,0,20,600" FontSize="30"/>
-        <Button Name="BuyButton" Content="Buy" Margin="400,5,5,605" Foreground="White">
+        <TextBlock Name="PriceBlock" Text="Price:  0UAH" FontSize="25" Margin="150,5,240,605" VerticalAlignment="Center" TextAlignment="Right" />
+        <Button Name="BuyButton" Content="Buy" Margin="450,5,10,615" Foreground="White">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#FF27154E" Offset="0"/>
