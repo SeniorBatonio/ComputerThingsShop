@@ -18,7 +18,7 @@ namespace ComputerThingsShop
 
         public MainWindow()
         {
-            //loginWindow.ShowDialog();
+            loginWindow.ShowDialog();
             InitializeComponent();
             User = loginWindow.User;
             this.ComputerCasesButton.Selected += ListItemSelectionChanged;
