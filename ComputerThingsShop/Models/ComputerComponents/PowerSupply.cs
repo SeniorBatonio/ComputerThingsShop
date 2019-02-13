@@ -18,7 +18,7 @@ namespace ComputerThingsShop.Models.ComputerComponents
                     power = value;
             }
         }
-        public string NutritionCPU { get; set; }// питание
+        public string NutritionCPU { get; set; }
         public string CooldownSystem { get; set; }
         public string NutritionGPU { get; set; }
         public string FormFactor { get; set; }

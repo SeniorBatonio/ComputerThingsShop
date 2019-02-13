@@ -5,7 +5,7 @@ namespace ComputerThingsShop.Models.ComputerComponents
 {
     class Motherboard : ComputerComponent
     {
-        int numberRAMsocket; //количество слотов под оперативную память
+        int numberRAMsocket;
         int powerFromProcessor;
 
         public string BuildinSocket { get; set; }
@@ -23,7 +23,7 @@ namespace ComputerThingsShop.Models.ComputerComponents
                     numberRAMsocket = value;
             }
         }
-        public string FrontPanelSocket { get; set; } // задняя панель с разёмами под USB, монитор и тд
+        public string FrontPanelSocket { get; set; }
         public int PowerFromProcessor
         {
             get => powerFromProcessor;

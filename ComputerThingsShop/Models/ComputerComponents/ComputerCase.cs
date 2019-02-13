@@ -20,7 +20,7 @@ namespace ComputerThingsShop.Models.ComputerComponents
                     numberOfFans = value;
             }
         }
-        public bool PowerSupply { get; set; }//есть или не установлен по умолчанию
+        public bool PowerSupply { get; set; }
 
         public override string ToString()
         {

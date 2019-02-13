@@ -18,7 +18,7 @@ namespace ComputerThingsShop
 
         public MainWindow()
         {
-            loginWindow.ShowDialog();
+            //loginWindow.ShowDialog();
             InitializeComponent();
             User = loginWindow.User;
             this.ComputerCasesButton.Selected += ListItemSelectionChanged;
@@ -30,6 +30,7 @@ namespace ComputerThingsShop
             this.PowerSuppliesButton.Selected += ListItemSelectionChanged;
             this.RAMButton.Selected += ListItemSelectionChanged;
             this.BasketButton.Selected += ListItemSelectionChanged;
+            this.AccountButton.Selected += ListItemSelectionChanged;
 
             this.itemsListControl.ListItems.SelectionChanged += ItemSelectionChanged;
         }
@@ -75,6 +76,9 @@ namespace ComputerThingsShop
                     break;
                 case "Basket":
                     this.ActiveField.Content = new BasketControl();
+                    break;
+                case "Account":
+                    this.ActiveField.Content = new AccountControl();
                     break;
             }
 

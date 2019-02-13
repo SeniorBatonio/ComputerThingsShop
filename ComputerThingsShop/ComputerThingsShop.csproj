@@ -63,6 +63,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Order.cs" />
+    <Compile Include="UserControls\AccountControl.xaml.cs">
+      <DependentUpon>AccountControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\BasketControl.xaml.cs">
       <DependentUpon>BasketControl.xaml</DependentUpon>
     </Compile>
@@ -81,6 +84,10 @@
     <Compile Include="UserControls\ComponentsListItemControl.xaml.cs">
       <DependentUpon>ComponentsListItemControl.xaml</DependentUpon>
     </Compile>
+    <Page Include="UserControls\AccountControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\BasketControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
